@@ -19,6 +19,11 @@ configurations {
     }
 }
 
+archivesBaseName = 'back'
+bootJar {
+    archiveFileName = 'back.jar'
+}
+
 repositories {
     mavenCentral()
 }
