@@ -1,5 +1,5 @@
 spring:
   application:
-    name: report
+    name: backend
 server:
-  port: 9090
+  port: 8180

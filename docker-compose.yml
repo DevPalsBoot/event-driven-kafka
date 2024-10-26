@@ -30,8 +30,8 @@ services:
       - kafka
     networks:
       - kafka-network
-    restart:
-      always
+    ports:
+      - "8180:8180"
 
 
   report:
@@ -44,8 +44,8 @@ services:
       - kafka
     networks:
       - kafka-network
-    restart:
-      always
+    ports:
+      - "9090:9090"
 
 networks:
   kafka-network:

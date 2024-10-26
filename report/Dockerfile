@@ -1,29 +1,29 @@
-# 베이스 이미지 설정
-FROM openjdk:21-jdk-slim
+# 1단계: 빌드 단계
+FROM openjdk:21-jdk-slim AS builder
 
-# 작업 디렉토리 설정
-WORKDIR /app
+WORKDIR /build
 
-# 소스 코드 복사 및 Gradle 빌드
+# 소스 코드 및 Gradle Wrapper 복사
 COPY gradlew .
 COPY gradle gradle
 COPY build.gradle .
 COPY settings.gradle .
 COPY src src
 RUN chmod +x ./gradlew
-RUN ./gradlew bootJar
 
-# JAR 파일 복사
-COPY ./build/libs/report.jar /app/report.jar
+# Gradle 빌드 실행 (JAR 파일 생성)
+RUN ./gradlew clean bootJar --info
 
-# JAR 파일 권한 수정
-RUN chmod 755 /app/report.jar
+# 2단계: 실행 단계
+FROM openjdk:21-jdk-slim
 
-# 파일 존재 여부 확인
-RUN ls -l /app/report.jar
+WORKDIR /app
+
+# 빌드된 JAR 파일을 실행 이미지에 복사
+COPY --from=builder /build/build/libs/*.jar /app/app.jar
 
 # 컨테이너가 실행할 명령
-ENTRYPOINT ["java", "-jar", "/app/report.jar"]
+ENTRYPOINT ["java", "-jar", "/app/app.jar"]
 
-# 9090 포트로 애플리케이션이 실행됨
+# 애플리케이션 포트
 EXPOSE 9090
