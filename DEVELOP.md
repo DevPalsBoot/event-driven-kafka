@@ -64,6 +64,6 @@ todo
 
 ## 4. 명령어 📂
 ### 4-1. 카프카 Topic 목록 조회
-`/kafka-topics.sh --bootstrap-server localhost:9092 --list`
+`/kafka-topics --bootstrap-server localhost:9092 --list`
 ### 4-2. 특정 Topic record 조회
 `./kafka-console-consumer --bootstrap-server localhost:9092 --topic {토픽명} --from-beginning`
