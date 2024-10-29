@@ -60,3 +60,10 @@ IntelliJ에서 `docker-compose`로 실행 환경을 구성하는 방법은 다�
 
 ## 3. 테스트 방법 ✅
 todo
+
+
+## 4. 명령어 📂
+### 4-1. 카프카 Topic 목록 조회
+`/kafka-topics --bootstrap-server localhost:9092 --list`
+### 4-2. 특정 Topic record 조회
+`./kafka-console-consumer --bootstrap-server localhost:9092 --topic {토픽명} --from-beginning`
