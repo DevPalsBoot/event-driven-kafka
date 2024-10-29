@@ -1,8 +1,12 @@
 package org.devpalsboot.report.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.devpalsboot.report.domain.ReportComplete;
 import org.devpalsboot.report.service.ConsumerService;
 import org.devpalsboot.report.service.ProducerService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,13 +21,12 @@ public class EventController {
 
     /**
      * 보고서 생성 완료 이벤트 produce
-     * @param message
      * @return
      */
     @PostMapping("/report/completion")
-    public String sendReportCompletionEvent(@RequestParam("message") String message) {
-        producerService.sendReportCompletionEvent(message);
-        return "Message sent to Kafka: " + message;
+    public ResponseEntity<ReportComplete> sendReportCompletionEvent(@RequestBody ReportComplete reportComplete) {
+        producerService.sendReportCompletionEvent(reportComplete);
+        return new ResponseEntity<ReportComplete>(reportComplete, HttpStatus.OK);
     }
 
     /**
