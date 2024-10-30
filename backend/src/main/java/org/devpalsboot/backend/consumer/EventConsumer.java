@@ -19,7 +19,7 @@ public class EventConsumer {
      * 보고서 생성 완료
      */
     @GetMapping("/report/completion")
-    public List<String> consumeReportComplete(){
+    public List<Object> consumeReportComplete(){
         return consumerService.getMessages();
     }
 }
