@@ -10,14 +10,14 @@ import java.util.List;
 public class ConsumerService {
 
     public static final String REPORT_COMPLETE = "REPORT_COMPLETE";
-    private List<String> messages = new ArrayList<>();
+    private List<Object> messages = new ArrayList<>();
 
     @KafkaListener(topics = REPORT_COMPLETE, groupId = "example-group")
-    public void reportCompleteListener(String message) {
+    public void reportCompleteListener(Object message) {
         messages.add(message);
     }
 
-    public List<String> getMessages()   {
+    public List<Object> getMessages()   {
         return this.messages;
     }
 }
