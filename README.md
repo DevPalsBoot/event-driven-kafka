@@ -9,6 +9,7 @@ By [DevPalsBoot](https://github.com/DevPalsBoot)
 
 ## 구조도
 
+![제목 없는 다이어그램 drawio (2)](https://github.com/user-attachments/assets/5e0a3109-948c-4a8c-9543-0cc0d458f423)
 ---
 
 
