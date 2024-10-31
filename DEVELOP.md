@@ -56,7 +56,8 @@ IntelliJ에서 `docker-compose`로 실행 환경을 구성하는 방법은 다�
 ### 2.2 Docker 설정 
 `File > Settings > Build, Execution, Deployment`에서 설치한 Docker 추가
 ### 2.3 Run Configuration 추가 
-`Run/Debug Configuration`에서 Docker 환경 추가 후 `Compose Files`에 `./docker-compose.yml` 설정
+`Run/Debug Configuration`에서 Docker 환경 추가 후 `Compose Files`에 `./docker-compose.yml` 설정   
+`Modify Option` 클릭 후 `Build > always` 옵션 추가
 
 ## 3. 테스트 방법 ✅
 todo
