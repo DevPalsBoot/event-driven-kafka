@@ -1,5 +1,5 @@
 # 1단계: 빌드 단계
-FROM openjdk:21-jdk-slim AS builder
+FROM openjdk:17-slim AS builder
 
 WORKDIR /build
 
@@ -15,7 +15,7 @@ RUN chmod +x ./gradlew
 RUN ./gradlew clean bootJar --info
 
 # 2단계: 실행 단계
-FROM openjdk:21-jdk-slim
+FROM openjdk:17-slim
 
 WORKDIR /app
 
