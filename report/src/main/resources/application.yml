@@ -2,7 +2,7 @@ spring:
   application:
     name: report
   kafka:
-    bootstrap-servers: ${SPRING_KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
+    bootstrap-servers: broker-1:29092
     consumer:
       group-id: my-group
       auto-offset-reset: earliest
